@@ -33,23 +33,22 @@
 
       <!-- 6AM -->
       <div class="row">
-        <div class="col-1 row-style hour">
+        <div id="6" class="col-2 hour"> <!--Start here.  Need to give each an id so that we can audit-->
           <p>6AM</p>
         </div>
-        <textarea class="col-10 row-style"></textarea>
-        <div class="col-1 row-style"></div>
+        <textarea id="sixAmEvent" class="col-8"></textarea>
+        <button id="sixAmButton" class="col-2 saveBtn"></button>
       </div>
 
       <!-- 7AM -->
       <div class="row">
-        <div class="col-1 row-style hour">
+        <div class="col-2 hour">
           <p>7AM</p>
         </div>
-        <textarea id="eventText" class="col-10 row-style"></textarea>
-        <div class="col row-style"></div>
+        <textarea id="sevenAmEvent" class="col-8"></textarea>
+        <button id="sevenAmButton" class="col-2 saveBtn"></button>
       </div>
 
-     
     </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

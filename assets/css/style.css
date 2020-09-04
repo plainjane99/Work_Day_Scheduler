@@ -14,7 +14,31 @@ body {
   border-bottom: 10px solid black;
 }
 
-/* input area, i think */
+/* styling for each time-block row wrapper */
+.row {
+  white-space: pre-wrap;
+  height: 80px;
+  border-top: 1px solid white;
+}
+
+/* styling for hour column */ 
+.hour {
+  background-color: #ffffff;
+  color: #000000;
+  border-top: 1px dashed #000000;
+  /*  my own styling */
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* styling for hour text */
+.hour p {
+  margin-bottom: 0;
+  text-align: right;
+}
+
+/* styling for user input area */
 textarea {
   background: transparent;
   border: none;
@@ -24,34 +48,15 @@ textarea {
   padding: 10px;
 }
 
-/* input area? */ 
-.description {
-  white-space: pre-wrap;
-}
-
-/* this seems to be the save button? */
+/* this seems to be unncessary???******************* */
 .time-block {
   text-align: center;
   border-radius: 15px;
 }
 
-/* styling for input area? */
-/* .row {
+/* don't know what this is ***************************/ 
+.description {
   white-space: pre-wrap;
-  height: 80px;
-  border-top: 1px solid white;
-} */
-.row-style {
-  white-space: pre-wrap;
-  height: 80px;
-  border-top: 1px solid white;
-}
-
-/* hour column */ 
-.hour {
-  background-color: #ffffff;
-  color: #000000;
-  border-top: 1px dashed #000000;
 }
 
 .past {
