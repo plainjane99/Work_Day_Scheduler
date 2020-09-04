@@ -49,7 +49,7 @@ textarea {
   border-radius: 15px;
 }
 
-/* did not use - does not seem necessary */ 
+/* does not seem necessary */ 
 .description {
   white-space: pre-wrap;
 }
@@ -78,7 +78,8 @@ textarea {
   color: white;
 }
 
-.saveBtn i:hover {
+/* hover state for save button */
+.saveBtn:hover {
   font-size: 20px;
   transition: all .3s ease-in-out;
 }

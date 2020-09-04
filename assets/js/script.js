@@ -40,6 +40,7 @@ var auditTime = function() {
     switch (curTimeHour()) {
         case 9:
             console.log("It's 9.");
+            
             break;
         case 10: 
             console.log("It's 10.");
