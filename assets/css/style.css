@@ -26,16 +26,11 @@ body {
   background-color: #ffffff;
   color: #000000;
   border-top: 1px dashed #000000;
-  /*  my own styling */
-  display: inline-flex;
-  align-items: center;
-  justify-content: flex-end;
 }
 
 /* styling for hour text */
 .hour p {
   margin-bottom: 0;
-  text-align: right;
 }
 
 /* styling for user input area */
@@ -48,13 +43,13 @@ textarea {
   padding: 10px;
 }
 
-/* this seems to be unncessary???******************* */
+/* did not use - does not seem necessary. */
 .time-block {
   text-align: center;
   border-radius: 15px;
 }
 
-/* don't know what this is ***************************/ 
+/* did not use - does not seem necessary */ 
 .description {
   white-space: pre-wrap;
 }
@@ -74,6 +69,7 @@ textarea {
   color: white;
 }
 
+/* definitely the save button */
 .saveBtn {
   border-left: 1px solid black;
   border-top-right-radius: 15px;

@@ -18,6 +18,10 @@
       href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" integrity="sha512-UyNhw5RNpQaCai2EdC+Js0QL4RlVmiq41DkmCJsRV3ZxipG2L0HhTqIf/H9Hp8ez2EnFlkBnjRGJU2stW3Lj+w==" crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Work Day Scheduler</title>
   </head>
@@ -33,20 +37,24 @@
 
       <!-- 6AM -->
       <div class="row">
-        <div id="6" class="col-2 hour"> <!--Start here.  Need to give each an id so that we can audit-->
+        <div id="6HundredHour" class="col-1 d-flex justify-content-end align-items-center hour"> 
           <p>6AM</p>
         </div>
-        <textarea id="sixAmEvent" class="col-8"></textarea>
-        <button id="sixAmButton" class="col-2 saveBtn"></button>
+        <textarea id="sixAmEvent" class="col-10 description"></textarea>
+        <button id="sixAmButton" class="col-1 d-flex justify-content-center align-items-center saveBtn">
+          <span class="oi oi-box mt-0"></span>
+        </button>
       </div>
 
       <!-- 7AM -->
       <div class="row">
-        <div class="col-2 hour">
+        <div id="7AmHour" class="col-1 d-flex justify-content-end align-items-center hour">
           <p>7AM</p>
         </div>
-        <textarea id="sevenAmEvent" class="col-8"></textarea>
-        <button id="sevenAmButton" class="col-2 saveBtn"></button>
+        <textarea id="sevenAmEvent" class="col-10 description"></textarea>
+        <button id="sevenAmButton" class="col-1 d-flex justify-content-center align-items-center saveBtn">
+          <span class="oi oi-box mt-0"></span>
+        </button>
       </div>
 
     </div>

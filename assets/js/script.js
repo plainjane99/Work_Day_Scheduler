@@ -31,23 +31,23 @@ $('#sevenAmButton').on("click", function() {
 // audits the time
 var auditTime = function() {
 
-    // gets current time
-    var today = new Date();
-    var hour = today.getHours();
-    console.log(hour);
+    // gets the hours of the current time
+    function curTimeHour() {
+        var currentHour = new Date().getHours();
+        console.log(currentHour);
+        return(currentHour);
+    };
+    switch (curTimeHour()) {
+        case 9:
+            console.log("It's 9.");
+            break;
+        case 10: 
+            console.log("It's 10.");
+    };
+
+    
 
     // sets time for time block
-    var timeBlockArray = [];
-    var numTimeBlocks = 12;
-    for (var i = 0; i < numTimeBlocks; i++) {
-        
-        var timeBlockHour = i + 6;
-        timeBlockArray.push(timeBlockHour);
-
-        console.log(timeBlockArray);
-    }
-
-
 
 }
 
