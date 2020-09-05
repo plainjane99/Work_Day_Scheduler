@@ -89,13 +89,45 @@ $('#onePmButton').on("click", function() {
     saveEvents(eventInput1Pm);
 })
 
+// saves 2PM data
+$('#twoPmButton').on("click", function() {
+    var eventInput2Pm = $("#twoPmEvent").val();
 
+    function saveEvents() {
+        localStorage.setItem("twoPm", JSON.stringify(eventInput2Pm));
+    }
+    saveEvents(eventInput2Pm);
+})
 
+// saves 3PM data
+$('#threePmButton').on("click", function() {
+    var eventInput3Pm = $("#threePmEvent").val();
 
+    function saveEvents() {
+        localStorage.setItem("threePm", JSON.stringify(eventInput3Pm));
+    }
+    saveEvents(eventInput3Pm);
+})
 
+// saves 4PM data
+$('#fourPmButton').on("click", function() {
+    var eventInput4Pm = $("#fourPmEvent").val();
 
+    function saveEvents() {
+        localStorage.setItem("fourPm", JSON.stringify(eventInput4Pm));
+    }
+    saveEvents(eventInput4Pm);
+})
 
+// saves 5PM data
+$('#fivePmButton').on("click", function() {
+    var eventInput5Pm = $("#fivePmEvent").val();
 
+    function saveEvents() {
+        localStorage.setItem("fivePm", JSON.stringify(eventInput5Pm));
+    }
+    saveEvents(eventInput5Pm);
+})
 
 // audits the time
 // audits 6AM time block
