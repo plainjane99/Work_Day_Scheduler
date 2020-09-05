@@ -1,6 +1,7 @@
 // Global Variables Go Here
 var currentDay = moment();
 var currentHour = currentDay.hours();
+console.log(currentHour);
 
 // displays current date to header
 $('#currentDay').text(function() {
@@ -148,11 +149,11 @@ function audit6Am() {
         // console.log("time block is less than current time of " + currentHour + " hundred hours.");
         $("#sixAmEvent").addClass("past");
     }
-    else if (timeBlockHourInt = currentHour) {
-        $("#sixAmEvent").addClass("present");
+    else if (timeBlockHourInt > currentHour) {
+        $("#sixAmEvent").addClass("future");
     }
     else {
-        $("#sixAmEvent").addClass("future");
+        $("#sixAmEvent").addClass("present");
     }
 
 };
@@ -165,13 +166,13 @@ function audit7Am() {
     if (timeBlockHourInt < currentHour) {
         $("#sevenAmEvent").addClass("past");
     }
-    else if (timeBlockHourInt = currentHour) {
-        $("#sevenAmEvent").addClass("present");
-    }
-    else {
+    else if (timeBlockHourInt > currentHour) {
         $("#sevenAmEvent").addClass("future");
     }
-}
+    else {
+        $("#sevenAmEvent").addClass("present");
+    }
+};
 
 // audits 8AM time block
 function audit8Am() {
@@ -181,13 +182,160 @@ function audit8Am() {
     if (timeBlockHourInt < currentHour) {
         $("#eightAmEvent").addClass("past");
     }
-    else if (timeBlockHourInt = currentHour) {
-        $("#eightAmEvent").addClass("present");
-    }
-    else {
+    else if (timeBlockHourInt > currentHour) {
         $("#eightAmEvent").addClass("future");
     }
-}
+    else {
+        $("#eightAmEvent").addClass("present");
+    }
+};
+
+// audits 9AM time block
+function audit9Am() {
+    var timeBlockHourId = $("#timeBlock9Am").attr("hour");
+    var timeBlockHourInt = parseInt(timeBlockHourId);
+
+    if (timeBlockHourInt < currentHour) {
+        $("#nineAmEvent").addClass("past");
+    }
+    else if (timeBlockHourInt > currentHour) {
+        $("#nineAmEvent").addClass("future");
+    }
+    else {
+        $("#nineAmEvent").addClass("present");
+    }
+};
+
+// audits 10AM time block
+function audit10Am() {
+    var timeBlockHourId = $("#timeBlock10Am").attr("hour");
+    var timeBlockHourInt = parseInt(timeBlockHourId);
+
+    if (timeBlockHourInt < currentHour) {
+        $("#tenAmEvent").addClass("past");
+    }
+    else if (timeBlockHourInt > currentHour) {
+        $("#tenAmEvent").addClass("future");
+    }
+    else {
+        $("#tenAmEvent").addClass("present");
+    }
+};
+
+// audits 11AM time block
+function audit11Am() {
+    var timeBlockHourId = $("#timeBlock11Am").attr("hour");
+    var timeBlockHourInt = parseInt(timeBlockHourId);
+
+    if (timeBlockHourInt < currentHour) {
+        $("#elevenAmEvent").addClass("past");
+    }
+    else if (timeBlockHourInt > currentHour) {
+        $("#elevenAmEvent").addClass("future");
+    }
+    else {
+        $("#elevenAmEvent").addClass("present");
+    }
+};
+
+// audits 12PM time block
+function audit12Pm() {
+    var timeBlockHourId = $("#timeBlock12Pm").attr("hour");
+    var timeBlockHourInt = parseInt(timeBlockHourId);
+
+    if (timeBlockHourInt < currentHour) {
+        $("#twelvePmEvent").addClass("past");
+    }
+    else if (timeBlockHourInt > currentHour) {
+        $("#twelvePmEvent").addClass("future");
+    }
+    else {
+        $("#twelvePmEvent").addClass("present");
+    }
+};
+
+// audits 1PM time block
+function audit1Pm() {
+    var timeBlockHourId = $("#timeBlock1Pm").attr("hour");
+    var timeBlockHourInt = parseInt(timeBlockHourId);
+
+    if (timeBlockHourInt < currentHour) {
+        $("#onePmEvent").addClass("past");
+    }
+    else if (timeBlockHourInt > currentHour) {
+        $("#onePmEvent").addClass("future");
+    }
+    else {
+        $("#onePmEvent").addClass("present");
+    }
+};
+
+// audits 2PM time block
+function audit2Pm() {
+    var timeBlockHourId = $("#timeBlock2Pm").attr("hour");
+    var timeBlockHourInt = parseInt(timeBlockHourId);
+
+    if (timeBlockHourInt < currentHour) {
+        $("#twoPmEvent").addClass("past");
+    }
+    else if (timeBlockHourInt > currentHour) {
+        $("#twoPmEvent").addClass("future");
+    }
+    else {
+        $("#twoPmEvent").addClass("present");
+    }
+};
+
+// audits 3PM time block
+function audit3Pm(currentHour) {
+
+    // debugger;
+
+    var timeBlockHourId = $("#timeBlock3Pm").attr("hour");
+    var timeBlockHourInt = parseInt(timeBlockHourId);
+
+    if (timeBlockHourInt < currentHour) {
+        $("#threePmEvent").addClass("past");
+    }
+    else if (timeBlockHourInt > currentHour) {
+        $("#threePmEvent").addClass("future");
+    }
+    else {
+        $("#threePmEvent").addClass("present");
+    }
+};
+
+// audits 4PM time block
+function audit4Pm() {
+    var timeBlockHourId = $("#timeBlock4Pm").attr("hour");
+    var timeBlockHourInt = parseInt(timeBlockHourId);
+
+    if (timeBlockHourInt < currentHour) {
+        $("#fourPmEvent").addClass("past");
+    }
+    else if (timeBlockHourInt > currentHour) {
+        $("#fourPmEvent").addClass("future");
+    }
+    else {
+        $("#fourPmEvent").addClass("present");
+    }
+};
+
+// audits 5PM time block
+function audit5Pm() {
+    var timeBlockHourId = $("#timeBlock5Pm").attr("hour");
+    var timeBlockHourInt = parseInt(timeBlockHourId);
+
+    if (timeBlockHourInt < currentHour) {
+        $("#fivePmEvent").addClass("past");
+    }
+    else if (timeBlockHourInt > currentHour) {
+        $("#fivePmEvent").addClass("future");
+    }
+    else {
+        $("#fivePmEvent").addClass("present");
+    }
+};
 
 // load previous data from local storage
 $().ready(function() {
@@ -205,11 +353,48 @@ $().ready(function() {
         var getEightAm = JSON.parse(localStorage.getItem("eightAm"));
         audit8Am();
 
+        var getNineAm = JSON.parse(localStorage.getItem("nineAm"));
+        audit9Am();
+
+        var getTenAm = JSON.parse(localStorage.getItem("tenAm"));
+        audit10Am();
+
+        var getElevenAm = JSON.parse(localStorage.getItem("elevenAm"));
+        audit11Am();
+
+        var getTwelvePm = JSON.parse(localStorage.getItem("twelvePm"));
+        audit12Pm();
+
+        var getOnePm = JSON.parse(localStorage.getItem("onePm"));
+        audit1Pm();
+
+        var getTwoPm = JSON.parse(localStorage.getItem("twoPm"));
+        audit2Pm();
+
+        // debugger;
+
+        var getThreePm = JSON.parse(localStorage.getItem("threePm"));
+        audit3Pm(currentHour);
+
+        var getFourPm = JSON.parse(localStorage.getItem("fourPm"));
+        audit4Pm();
+
+        var getFivePm = JSON.parse(localStorage.getItem("fivePm"));
+        audit5Pm();
 
         // displays to page
         $("#sixAmEvent").val(getSixAm);
         $("#sevenAmEvent").val(getSevenAm);
         $("#eightAmEvent").val(getEightAm);
+        $("#nineAmEvent").val(getNineAm);
+        $("#tenAmEvent").val(getTenAm);
+        $("#elevenAmEvent").val(getElevenAm);
+        $("#twelvePmEvent").val(getTwelvePm);
+        $("#onePmEvent").val(getOnePm);
+        $("#twoPmEvent").val(getTwoPm);
+        $("#threePmEvent").val(getThreePm);
+        $("#fourPmEvent").val(getFourPm);
+        $("#fivePmEvent").val(getFivePm);
     }
 
     loadEvents();
