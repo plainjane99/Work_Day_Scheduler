@@ -1,6 +1,5 @@
 // Global Variables Go Here
 
-
 // display current date
 $('#currentDay').text(function() {
     var currentDate = moment().format('dddd, MMMM DD, YYYY');
@@ -29,37 +28,39 @@ $('#sevenAmButton').on("click", function() {
 })
 
 // audits the time
-var auditTime = function() {
 
-    // gets the hours of the current time
-    function curTimeHour() {
-        var currentHour = new Date().getHours();
-        console.log(currentHour);
-        return(currentHour);
-    };
-    switch (curTimeHour()) {
-        case 9:
-            console.log("It's 9.");
-            
-            break;
-        case 10: 
-            console.log("It's 10.");
-    };
+function auditTime(eventHour) {
 
-    
+    // tags 'currentDay' ID with an "hour" attribute
+    // gets the hour of the current time
+    var currentHour = new Date().getHours();
+    console.log("It's " + currentHour + " hundred hours.");
+    console.log(typeof currentHour);
 
-    // sets time for time block
+    // creates an "hour" attribute for the current Hour
+    // var currentHourId = $("#currentDay").attr("hour", currentHour);
+    // console.log(currentHourId);
 
-}
+    // gets value of hour attribute
+    var hourValue = $(".hour")
+
+
+};
 
 // load previous data from local storage
 $().ready(function() {
 
     function loadEvents() {
 
+        // gets items from local storage by name
         var getSixAm = JSON.parse(localStorage.getItem("sixAm"));
+        // audits items for past, present, future
+        auditTime(getSixAm);
+
         var getSevenAm = JSON.parse(localStorage.getItem("sevenAm"));
 
+
+        // displays to page
         $("#sixAmEvent").val(getSixAm);
         $("#sevenAmEvent").val(getSevenAm);
 
