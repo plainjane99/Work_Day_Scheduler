@@ -34,7 +34,8 @@ function auditTime(eventHour) {
     // tags 'currentDay' ID with an "hour" attribute
     // gets the hour of the current time
     var currentHour = new Date().getHours();
-    console.log("It's " + currentHour + " hundred hours.");
+    // console.log("It's " + currentHour + " hundred hours.");
+    console.log(currentHour);
     console.log(typeof currentHour);
 
     // creates an "hour" attribute for the current Hour
@@ -42,8 +43,22 @@ function auditTime(eventHour) {
     // console.log(currentHourId);
 
     // gets value of hour attribute
-    var hourValue = $(".hour")
+    var timeBlockHourId = $("#timeBlock6Am").attr("hour");
+    console.log(timeBlockHourId);
+    console.log(typeof timeBlockHourId);
+    var timeBlockHourInt = parseInt(timeBlockHourId);
+    console.log(typeof timeBlockHourInt);
 
+    if (timeBlockHourInt < currentHour) {
+        console.log("time block is less than current time of " + currentHour + " hundred hours.");
+        $("#sixAmEvent").addClass("past");
+    }
+    else if (timeBlockHourInt = currentHour) {
+        $("#sixAmEvent").addClass("present");
+    }
+    else {
+        $("#sixAmEvent").addClass("future");
+    }
 
 };
 
@@ -55,7 +70,7 @@ $().ready(function() {
         // gets items from local storage by name
         var getSixAm = JSON.parse(localStorage.getItem("sixAm"));
         // audits items for past, present, future
-        auditTime(getSixAm);
+        // auditTime(getSixAm);
 
         var getSevenAm = JSON.parse(localStorage.getItem("sevenAm"));
 
