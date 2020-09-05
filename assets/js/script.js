@@ -1,8 +1,12 @@
 // Global Variables Go Here
+// var currentHour = new Date().getHours();
+var currentDay = moment();
+var currentHour = currentDay.hours();
 
-// display current date
+// displays current date to header
 $('#currentDay').text(function() {
-    var currentDate = moment().format('dddd, MMMM DD, YYYY');
+    // var currentDate = moment().format('dddd, MMMM DD, YYYY');
+    var currentDate = currentDay.format('dddd, MMMM DD, YYYY');
     return currentDate.toString();
 });
 
@@ -29,14 +33,14 @@ $('#sevenAmButton').on("click", function() {
 
 // audits the time
 
-function auditTime(eventHour) {
+function auditTime(currentHour) {
 
     // tags 'currentDay' ID with an "hour" attribute
     // gets the hour of the current time
-    var currentHour = new Date().getHours();
+    // var currentHour = new Date().getHours();
     // console.log("It's " + currentHour + " hundred hours.");
-    console.log(currentHour);
-    console.log(typeof currentHour);
+    // console.log(currentHour);
+    // console.log(typeof currentHour);
 
     // creates an "hour" attribute for the current Hour
     // var currentHourId = $("#currentDay").attr("hour", currentHour);
@@ -44,10 +48,10 @@ function auditTime(eventHour) {
 
     // gets value of hour attribute
     var timeBlockHourId = $("#timeBlock6Am").attr("hour");
-    console.log(timeBlockHourId);
-    console.log(typeof timeBlockHourId);
+    // console.log(timeBlockHourId);
+    // console.log(typeof timeBlockHourId);
     var timeBlockHourInt = parseInt(timeBlockHourId);
-    console.log(typeof timeBlockHourInt);
+    // console.log(typeof timeBlockHourInt);
 
     if (timeBlockHourInt < currentHour) {
         console.log("time block is less than current time of " + currentHour + " hundred hours.");
@@ -70,7 +74,7 @@ $().ready(function() {
         // gets items from local storage by name
         var getSixAm = JSON.parse(localStorage.getItem("sixAm"));
         // audits items for past, present, future
-        // auditTime(getSixAm);
+        auditTime(currentHour);
 
         var getSevenAm = JSON.parse(localStorage.getItem("sevenAm"));
 
