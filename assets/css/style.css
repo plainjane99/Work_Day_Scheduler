@@ -43,16 +43,16 @@ textarea {
   padding: 10px;
 }
 
-/* did not use - does not seem necessary. */
-.time-block {
+/* did not use */
+/* .time-block {
   text-align: center;
   border-radius: 15px;
-}
+} */
 
-/* does not seem necessary */ 
-.description {
+/* did not use */
+/* .description {
   white-space: pre-wrap;
-}
+} */
 
 .past {
   background-color: #d3d3d3;

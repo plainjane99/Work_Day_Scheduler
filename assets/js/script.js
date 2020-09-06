@@ -1,7 +1,6 @@
 // Global Variables Go Here
 var currentDay = moment();
 var currentHour = currentDay.hours();
-console.log(currentHour);
 
 // displays current date to header
 $('#currentDay').text(function() {
@@ -130,23 +129,14 @@ $('#fivePmButton').on("click", function() {
     saveEvents(eventInput5Pm);
 })
 
-// audits the time
+// audits the timeblock for past, present, future
 // audits 6AM time block
 function audit6Am() {
-
-//     // creates an "hour" attribute for the current Hour
-//     // var currentHourId = $("#currentDay").attr("hour", currentHour);
-//     // console.log(currentHourId);
-
-//     // gets value of hour attribute
+    // gets value of hour attribute
     var timeBlockHourId = $("#timeBlock6Am").attr("hour");
-//     // console.log(timeBlockHourId);
-//     // console.log(typeof timeBlockHourId);
     var timeBlockHourInt = parseInt(timeBlockHourId);
-//     // console.log(typeof timeBlockHourInt);
 
     if (timeBlockHourInt < currentHour) {
-        // console.log("time block is less than current time of " + currentHour + " hundred hours.");
         $("#sixAmEvent").addClass("past");
     }
     else if (timeBlockHourInt > currentHour) {
@@ -155,7 +145,6 @@ function audit6Am() {
     else {
         $("#sixAmEvent").addClass("present");
     }
-
 };
 
 // audits 7AM time block
@@ -288,9 +277,6 @@ function audit2Pm() {
 
 // audits 3PM time block
 function audit3Pm(currentHour) {
-
-    // debugger;
-
     var timeBlockHourId = $("#timeBlock3Pm").attr("hour");
     var timeBlockHourInt = parseInt(timeBlockHourId);
 
@@ -337,66 +323,66 @@ function audit5Pm() {
     }
 };
 
+function loadEvents() {
+
+    // gets items from local storage by name
+    var getSixAm = JSON.parse(localStorage.getItem("sixAm"));
+    // audits items for past, present, future
+    audit6Am();
+
+    var getSevenAm = JSON.parse(localStorage.getItem("sevenAm"));
+    audit7Am();
+
+    var getEightAm = JSON.parse(localStorage.getItem("eightAm"));
+    audit8Am();
+
+    var getNineAm = JSON.parse(localStorage.getItem("nineAm"));
+    audit9Am();
+
+    var getTenAm = JSON.parse(localStorage.getItem("tenAm"));
+    audit10Am();
+
+    var getElevenAm = JSON.parse(localStorage.getItem("elevenAm"));
+    audit11Am();
+
+    var getTwelvePm = JSON.parse(localStorage.getItem("twelvePm"));
+    audit12Pm();
+
+    var getOnePm = JSON.parse(localStorage.getItem("onePm"));
+    audit1Pm();
+
+    var getTwoPm = JSON.parse(localStorage.getItem("twoPm"));
+    audit2Pm();
+
+    var getThreePm = JSON.parse(localStorage.getItem("threePm"));
+    audit3Pm(currentHour);
+
+    var getFourPm = JSON.parse(localStorage.getItem("fourPm"));
+    audit4Pm();
+
+    var getFivePm = JSON.parse(localStorage.getItem("fivePm"));
+    audit5Pm();
+
+    // displays to page
+    $("#sixAmEvent").val(getSixAm);
+    $("#sevenAmEvent").val(getSevenAm);
+    $("#eightAmEvent").val(getEightAm);
+    $("#nineAmEvent").val(getNineAm);
+    $("#tenAmEvent").val(getTenAm);
+    $("#elevenAmEvent").val(getElevenAm);
+    $("#twelvePmEvent").val(getTwelvePm);
+    $("#onePmEvent").val(getOnePm);
+    $("#twoPmEvent").val(getTwoPm);
+    $("#threePmEvent").val(getThreePm);
+    $("#fourPmEvent").val(getFourPm);
+    $("#fivePmEvent").val(getFivePm);
+};
+
 // load previous data from local storage
 $().ready(function() {
-
-    function loadEvents() {
-
-        // gets items from local storage by name
-        var getSixAm = JSON.parse(localStorage.getItem("sixAm"));
-        // audits items for past, present, future
-        audit6Am();
-
-        var getSevenAm = JSON.parse(localStorage.getItem("sevenAm"));
-        audit7Am();
-
-        var getEightAm = JSON.parse(localStorage.getItem("eightAm"));
-        audit8Am();
-
-        var getNineAm = JSON.parse(localStorage.getItem("nineAm"));
-        audit9Am();
-
-        var getTenAm = JSON.parse(localStorage.getItem("tenAm"));
-        audit10Am();
-
-        var getElevenAm = JSON.parse(localStorage.getItem("elevenAm"));
-        audit11Am();
-
-        var getTwelvePm = JSON.parse(localStorage.getItem("twelvePm"));
-        audit12Pm();
-
-        var getOnePm = JSON.parse(localStorage.getItem("onePm"));
-        audit1Pm();
-
-        var getTwoPm = JSON.parse(localStorage.getItem("twoPm"));
-        audit2Pm();
-
-        // debugger;
-
-        var getThreePm = JSON.parse(localStorage.getItem("threePm"));
-        audit3Pm(currentHour);
-
-        var getFourPm = JSON.parse(localStorage.getItem("fourPm"));
-        audit4Pm();
-
-        var getFivePm = JSON.parse(localStorage.getItem("fivePm"));
-        audit5Pm();
-
-        // displays to page
-        $("#sixAmEvent").val(getSixAm);
-        $("#sevenAmEvent").val(getSevenAm);
-        $("#eightAmEvent").val(getEightAm);
-        $("#nineAmEvent").val(getNineAm);
-        $("#tenAmEvent").val(getTenAm);
-        $("#elevenAmEvent").val(getElevenAm);
-        $("#twelvePmEvent").val(getTwelvePm);
-        $("#onePmEvent").val(getOnePm);
-        $("#twoPmEvent").val(getTwoPm);
-        $("#threePmEvent").val(getThreePm);
-        $("#fourPmEvent").val(getFourPm);
-        $("#fivePmEvent").val(getFivePm);
-    }
-
     loadEvents();
 })
 
+setInterval(function() {
+    loadEvents();
+},60000);
